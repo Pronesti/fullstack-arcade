@@ -25,7 +25,7 @@ mongoose.connect(db)
 app.use('/api/items', items);
 app.use('/api/users', users);
 app.get('/admin', (req, res) => {
-    res.send(path.resolve(__dirname, 'routes', 'admin', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'routes', 'admin', 'index.html'));
 });
 
 // Serve static assets if in production
