@@ -12,13 +12,13 @@ export default class Pong extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('ball', 'assets/pong/ball.png');
-    this.load.image('left', 'assets/pong/left_pallete.png');
-    this.load.image('right', 'assets/pong/right_pallete.png');
-    this.load.image('separator', 'assets/pong/separator.png');
-    this.load.audio('hit1', 'assets/pong/hit1.ogg');
-    this.load.audio('hit2', 'assets/pong/hit2.ogg');
-    this.load.audio('point', 'assets/pong/point.ogg');
+    this.load.image('ball', 'assets/Pong/ball.png');
+    this.load.image('left', 'assets/Pong/left_pallete.png');
+    this.load.image('right', 'assets/Pong/right_pallete.png');
+    this.load.image('separator', 'assets/Pong/separator.png');
+    this.load.audio('hit1', 'assets/Pong/hit1.ogg');
+    this.load.audio('hit2', 'assets/Pong/hit2.ogg');
+    this.load.audio('point', 'assets/Pong/point.ogg');
   }
   create() {
     let width = this.sys.game.config.width;
