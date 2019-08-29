@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 
 const items = require('./routes/api/items');
 const users = require('./routes/api/users');
-const admin = require('./routes/admin/index');
 
 const app = express();
 const path = require('path');
@@ -26,7 +25,7 @@ mongoose.connect(db)
 app.use('/api/items', items);
 app.use('/api/users', users);
 app.get('/admin', (req, res) => {
-    res.send("hello admin");
+    res.send(path.resolve(__dirname, 'routes', 'admin', 'index.html'));
 });
 
 // Serve static assets if in production
