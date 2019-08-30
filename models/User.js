@@ -11,12 +11,13 @@ name: {
 email:{
     type: String,
     required: true,
+    unique: true,
 },
 password:{
     type: String,
     required: true,
 },
-date: {
+register_date: {
     type: Date,
     default: Date.now
 },
