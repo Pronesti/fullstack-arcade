@@ -10,9 +10,15 @@ import Home from './views/home.js';
 import PlayGame from './views/playGame.js';
 
 
-const getData = () => {
-  axios.get('/api/items')
-  .then(res => console.log(res.data));
+const getData = async () => {
+  const res = await axios.get('/api/items')
+  const token = res.data.token
+  console.log(token) // guardar en localstorage
+
+  const verify = await axios.post('/api/items/verify', {
+    token,
+  })
+
 }
 
 function App() {

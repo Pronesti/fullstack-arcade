@@ -1,18 +1,33 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 
 // Item Model
 
 const Item = require('../../models/Item');
-
+const SECRET = 'macrichau'
 // @route GET api/items
 // @desc Get All Items
 // @access Public
 router.get('/', (req, res) => {
-    Item.find()
-    .sort({ date: -1 })
-    .then(items => res.json(items));
+  const token = jwt.sign({user_id: 10, expired_at: 99999999}, SECRET)
+  res.send(200, { token })
 });
+
+
+
+router.post('/verify', (req, res) => {
+    const token = req.body.token
+    try {   
+        const verify = jwt.verify(token, SECRET)
+        res.send(200, { a: 1 })
+    } catch(err) {
+        res.send(401, { error: 'not authorized' })
+    }
+   
+    console.log(verify)
+   
+  });
 
 // @route POST api/items
 // @desc Create a Post
